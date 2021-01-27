@@ -7,16 +7,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
 public class HomeController {
 
+	File selectedFile;
+	
 	public HomeController() {}
 	
 	@FXML
 	private Button selectButton, convertButton;
 	@FXML
-	private Label filePathLabel;
+	private Label filePathLabel, bottomLabel;
+	@FXML
+	private TextArea tabTextArea;
 	
 	/**
 	 * Method for action event of file chooser button being clicked
@@ -25,7 +31,7 @@ public class HomeController {
 	 */
 	public void fileChooser (ActionEvent event) throws IOException{
 		FileChooser fc = new FileChooser();
-		File selectedFile = fc.showOpenDialog(null);
+		selectedFile = fc.showOpenDialog(null);
 		
 		if (selectedFile != null) {
 			filePathLabel.setText(selectedFile.getAbsolutePath());
@@ -38,12 +44,32 @@ public class HomeController {
 		//that would eliminate the duplicate needs of converting a shown file vs converting something in the test field
 		
 	}
+	
 	/**
 	 * Method for action event of the convert button being clicked
 	 * @param event
 	 */
 	public void converter(ActionEvent event) {
-		System.out.println("convert");
+		String filePath = selectedFile.getAbsolutePath();
+		int index = filePath.lastIndexOf('.');
+		String fileType = filePath.substring(index);
+		System.out.println(fileType);
+		
+		if( fileType.equals(".txt")) {
+			bottomLabel.setTextFill(Color.GREEN);
+			bottomLabel.setText("This is a .txt file, you may convert this");
+		}else {
+			bottomLabel.setTextFill(Color.RED);
+			bottomLabel.setText("This is NOT a text file, please select a .txt file");
+
+		}		
+	}
+	
+	/**
+	 * Method to read a .txt file and displaying in the field window
+	 */
+	public void reader() {
+		
 	}
 	
 }

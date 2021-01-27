@@ -59,7 +59,7 @@
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Label text="Empty text for now" />
+            <Label fx:id="bottomLabel" text="Empty text for now" />
          </children>
          <padding>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
