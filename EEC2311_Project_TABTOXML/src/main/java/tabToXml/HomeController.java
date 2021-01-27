@@ -34,9 +34,9 @@ public class HomeController {
 		selectedFile = fc.showOpenDialog(null);
 		
 		if (selectedFile != null) {
-			filePathLabel.setText(selectedFile.getAbsolutePath());
+			filePathLabel.setText("File Path: "+ selectedFile.getAbsolutePath());
 		}else {
-			filePathLabel.setText("No file selected");
+			filePathLabel.setText("File Path: ");
 		}
 		
 		//----------------
@@ -53,14 +53,13 @@ public class HomeController {
 		String filePath = selectedFile.getAbsolutePath();
 		int index = filePath.lastIndexOf('.');
 		String fileType = filePath.substring(index);
-		System.out.println(fileType);
 		
 		if( fileType.equals(".txt")) {
 			bottomLabel.setTextFill(Color.GREEN);
-			bottomLabel.setText("This is a .txt file, you may convert this");
+			bottomLabel.setText("File Status: A \".txt\" file, you may convert this");
 		}else {
 			bottomLabel.setTextFill(Color.RED);
-			bottomLabel.setText("This is NOT a text file, please select a .txt file");
+			bottomLabel.setText("File Status: NOT a \".txt\" file, pls select a .txt file");
 
 		}		
 	}
