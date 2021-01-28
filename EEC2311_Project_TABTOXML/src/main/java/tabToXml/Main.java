@@ -10,15 +10,13 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-
-		Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+		
 		primaryStage.setTitle("Converter: Text to MusicXML");
-		// keep scene equal or bigger than default in fxml
-	    primaryStage.setScene(new Scene(root, 800, 500)); 
+		// keep scene equal or bigger than default in fxml - 800x500
+	    primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("Home.fxml")),800, 500)); 
 		primaryStage.show();
-	
-	
 	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}

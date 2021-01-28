@@ -13,7 +13,9 @@ import javafx.stage.FileChooser;
 
 public class HomeController {
 
-	File selectedFile;
+	FileChooser fc;
+	File selectedFile, oldFile;
+	String txtFileContents, fileType;
 	
 	public HomeController() {}
 	
@@ -30,15 +32,16 @@ public class HomeController {
 	 * @throws IOException
 	 */
 	public void fileChooser (ActionEvent event) throws IOException{
-		FileChooser fc = new FileChooser();
+		fc = new FileChooser();
 		selectedFile = fc.showOpenDialog(null);
+		if(selectedFile == null)
+			selectedFile = oldFile;
+		oldFile = selectedFile;
 		
 		if (selectedFile != null) {
 			filePathLabel.setText("File Path: "+ selectedFile.getAbsolutePath());
-		}else {
-			filePathLabel.setText("File Path: ");
 		}
-		
+		System.out.println(selectedFile);
 		//----------------
 		//Perhaps have this method show the file in the text field
 		//that would eliminate the duplicate needs of converting a shown file vs converting something in the test field
@@ -50,17 +53,22 @@ public class HomeController {
 	 * @param event
 	 */
 	public void converter(ActionEvent event) {
-		String filePath = selectedFile.getAbsolutePath();
-		int index = filePath.lastIndexOf('.');
-		String fileType = filePath.substring(index);
+		if(selectedFile != null) {
+			String filePath = selectedFile.getAbsolutePath();
+			int index = filePath.lastIndexOf('.');
+			fileType = filePath.substring(index);
+		}
 		
-		if( fileType.equals(".txt")) {
+		if (selectedFile == null) {
+			bottomLabel.setTextFill(Color.RED);
+			bottomLabel.setText("File Status: No file selected, pls select a .txt file");
+		}
+		else if(fileType.equals(".txt")) {
 			bottomLabel.setTextFill(Color.GREEN);
 			bottomLabel.setText("File Status: A \".txt\" file, you may convert this");
 		}else {
 			bottomLabel.setTextFill(Color.RED);
 			bottomLabel.setText("File Status: NOT a \".txt\" file, pls select a .txt file");
-
 		}		
 	}
 	
