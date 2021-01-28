@@ -10,7 +10,7 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+
 		primaryStage.setTitle("Converter: Text to MusicXML");
 		// keep scene equal or bigger than default in fxml - 800x500
 	    primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("Home.fxml")),800, 500)); 
@@ -18,8 +18,11 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		GuitarTab gt = new GuitarTab("tab.txt");
+		System.out.print(gt);
 		launch(args);
 	}
-	
-	  
+
+  
 }
