@@ -6,17 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-<<<<<<< HEAD
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		GuitarTab gt = new GuitarTab("tab.txt");
-		System.out.print(gt);
-=======
 public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
->>>>>>> refs/remotes/origin/SyedGui
 
 		Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
 		primaryStage.setTitle("Converter: Text to MusicXML");
@@ -27,8 +20,11 @@ public class Main extends Application {
 	
 	}
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		GuitarTab gt = new GuitarTab("tab.txt");
+		System.out.print(gt);
 		launch(args);
 	}
-	
-	  
+
+  
 }
