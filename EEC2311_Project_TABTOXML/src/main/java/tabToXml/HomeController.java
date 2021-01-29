@@ -2,6 +2,7 @@ package tabToXml;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +23,7 @@ public class HomeController {
 	@FXML
 	private Button selectButton, convertButton;
 	@FXML
-	private Label filePathLabel, bottomLabel;
+	private Label filePathLabel, statusLabel;
 	@FXML
 	private TextArea tabTextArea;
 	
@@ -42,17 +43,7 @@ public class HomeController {
 			filePathLabel.setText("File Path: "+ selectedFile.getAbsolutePath());
 		}
 		System.out.println(selectedFile);
-		//----------------
-		//Perhaps have this method show the file in the text field
-		//that would eliminate the duplicate needs of converting a shown file vs converting something in the test field
 		
-	}
-	
-	/**
-	 * Method for action event of the convert button being clicked
-	 * @param event
-	 */
-	public void converter(ActionEvent event) {
 		if(selectedFile != null) {
 			String filePath = selectedFile.getAbsolutePath();
 			int index = filePath.lastIndexOf('.');
@@ -60,23 +51,33 @@ public class HomeController {
 		}
 		
 		if (selectedFile == null) {
-			bottomLabel.setTextFill(Color.RED);
-			bottomLabel.setText("File Status: No file selected, pls select a .txt file");
+			statusLabel.setTextFill(Color.RED);
+			statusLabel.setText("File Status: No file selected, pls select a .txt file");
 		}
 		else if(fileType.equals(".txt")) {
-			bottomLabel.setTextFill(Color.GREEN);
-			bottomLabel.setText("File Status: A \".txt\" file, you may convert this");
+			statusLabel.setTextFill(Color.GREEN);
+			statusLabel.setText("File Status: A \".txt\" file, you may convert this");
+			reader();
 		}else {
-			bottomLabel.setTextFill(Color.RED);
-			bottomLabel.setText("File Status: NOT a \".txt\" file, pls select a .txt file");
+			statusLabel.setTextFill(Color.RED);
+			statusLabel.setText("File Status: NOT a \".txt\" file, pls select a .txt file");
 		}		
+	}
+	
+	/**
+	 * Method for action event of the convert button being clicked
+	 * @param event
+	 */
+	public void converter(ActionEvent event) {
+				
 	}
 	
 	/**
 	 * Method to read a .txt file and displaying in the field window
 	 */
 	public void reader() {
-		
+		TextFileReader gt = new TextFileReader(selectedFile.getAbsolutePath());
+		tabTextArea.setText(gt.toString());		
 	}
 	
 }

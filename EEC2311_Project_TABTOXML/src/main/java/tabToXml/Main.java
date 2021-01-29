@@ -19,8 +19,8 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		GuitarTab gt = new GuitarTab("tab.txt");
-		System.out.print(gt);
+		//GuitarTab gt = new GuitarTab("tab.txt");
+		System.out.print("Launching Application");
 		launch(args);
 	}
 
