@@ -61,6 +61,7 @@ public class HomeController {
 		}else {
 			statusLabel.setTextFill(Color.RED);
 			statusLabel.setText("File Status: NOT a \".txt\" file, pls select a .txt file");
+			tabTextArea.setText("");
 		}		
 	}
 	
