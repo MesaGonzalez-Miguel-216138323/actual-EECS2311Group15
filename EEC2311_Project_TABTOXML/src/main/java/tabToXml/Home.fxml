@@ -38,7 +38,7 @@
             <HBox>
                <children>
                   <Button fx:id="selectButton" layoutX="56.0" layoutY="10.0" mnemonicParsing="false" onAction="#fileChooser" text="Select File" />
-                  <Label text="File Path Here">
+                  <Label text="File Path here">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
