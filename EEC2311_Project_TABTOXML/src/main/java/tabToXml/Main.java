@@ -18,18 +18,8 @@ public class Main extends Application {
 		primaryStage.show();
 	}
 	
-//	public static void conversion() {
-//		for (int j = 0; j < test.printList().size(); j++) {
-//			System.out.print(test.printList().get(0).get(0));
-//		}
-//		
-//	}
-	
 	public static void main(String[] args) {
-		
-		// TODO Auto-generated method stub
-		System.out.print(test.printList());
-		//conversion();
+
 		System.out.print("Launching Application");
 		launch(args);
 	}

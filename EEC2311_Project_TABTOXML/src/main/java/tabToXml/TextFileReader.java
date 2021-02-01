@@ -5,21 +5,53 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ * This Class creates an object that has two String Lists, the original text  and the parsed text
+ * @author Group15
+ *
+ */
 public class TextFileReader {
 	
 	private File inputFile;
-	//private ArrayList<String> tab = new ArrayList<>();
-	private List<List<String>> lists = new ArrayList<List<String>>();
+	
+	//Original text 
+	private ArrayList<String> originalTab = new ArrayList<String>();
+	
+	//Parsed text 
+	private List<List<String>> parsedTab = new ArrayList<List<String>>();
 	
 	//Read in the file
 	public TextFileReader(String inputFile){
 		this.inputFile = new File(inputFile);
-		this.readFile();
+		this.createOriginal();
+		this.createParsed();		
 	}
 	
+	/**
+	 * copies the file exactly the way it is into a dynamic string array
+	 */
+	private void createOriginal(){
+		Scanner sc = null;
+		try {
+			sc = new Scanner(inputFile);
+			
+			while(sc.hasNextLine()){	
+				String line = sc.nextLine();
+				originalTab.add(line);					
+				}		
+		}
+		catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			sc.close();
+		}		
+	}
 	
-	private void readFile(){
+	/**
+	 * Creates a parsed array of the file in parsedTab variable
+	 */
+	private void createParsed(){
 		Scanner sc = null;
 		try {
 			sc = new Scanner(inputFile);
@@ -29,18 +61,14 @@ public class TextFileReader {
 			while(sc.hasNextLine()){
 				
 				String line = sc.nextLine();
-				if (!(previousLine.isEmpty()) && (line.contains("-") && line.contains("|"))) {
+				if (!(previousLine.isEmpty()) && (line.contains("-") && line.contains("|")))
 					list.add(line);
 					
-				}
-				
 				if ((previousLine.contains("-") && previousLine.contains("|")) && !(line.contains("-") && line.contains("|"))) {					
-					lists.add(list);
-					list = new ArrayList<>();					
-					
+					parsedTab.add(list);
+					list = new ArrayList<>();						
 				}		
-				previousLine = line;
-				
+				previousLine = line;			
 			}		
 		}
 		catch(FileNotFoundException e) {
@@ -51,16 +79,24 @@ public class TextFileReader {
 		}
 	}
 	
-
-	public List<List<String>> printList() {		
-		//StringBuilder sb = new StringBuilder();	
+	/**
+	 * Prints the parsed text file
+	 * @return
+	 */
+	public List<List<String>> printParsed() {		
+		return parsedTab;
+	}
+	
+	/**
+	 * Prints the original text file
+	 * @return
+	 */
+	public String printOrginal() {
+		StringBuilder sb = new StringBuilder();	
 		
-//		for(List<String> s : lists) {
-//			sb.append(s + "\n");
-//		}
-		//return sb.toString();	
-		
-	//	System.out.print(lists);
-		return lists;
+		for(String s : originalTab) {
+			sb.append(s + "\n");
+		}
+		return sb.toString();	
 	}
 }
