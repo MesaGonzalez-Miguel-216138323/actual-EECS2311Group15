@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	public static TextFileReader test = new TextFileReader("C:\\Users\\Elijah\\git\\actual-EECS2311Group15\\EEC2311_Project_TABTOXML\\src\\main\\java\\tabToXml\\TabFile.txt");
+	public static TextFileReader test = new TextFileReader("tab.txt");
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
