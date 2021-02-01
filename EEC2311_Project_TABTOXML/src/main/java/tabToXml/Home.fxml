@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tabToXml.HomeController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox>
+               <children>
+                  <Button fx:id="selectButton" layoutX="56.0" layoutY="10.0" mnemonicParsing="false" onAction="#fileChooser" text="Select File" />
+                  <Label fx:id="filePathLabel" text="File Path:">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="convertButton" layoutX="536.0" layoutY="10.0" mnemonicParsing="false" onAction="#converter" text="Convert" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <Label fx:id="statusLabel" layoutX="10.0" layoutY="76.0" text="File Status: ">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="8.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox alignment="BOTTOM_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Some text maybe" HBox.hgrow="NEVER" />
+         </children>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <center>
+      <GridPane style="-fx-background-color: LightGray;" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="137.0" minHeight="0.0" prefHeight="26.0" vgrow="NEVER" />
+          <RowConstraints minHeight="10.0" prefHeight="265.0" vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <TextArea fx:id="tabTextArea" prefHeight="200.0" prefWidth="600.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextArea>
+            <Label minWidth="-Infinity" text="Text File Contents" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+</BorderPane>
