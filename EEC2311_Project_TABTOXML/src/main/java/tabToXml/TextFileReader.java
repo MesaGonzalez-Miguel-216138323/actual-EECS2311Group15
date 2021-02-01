@@ -10,6 +10,7 @@ public class TextFileReader {
 	private File inputFile;
 	private ArrayList<String> tab = new ArrayList<>();
 	
+	//Read in the file
 	public TextFileReader(String inputFile){
 		this.inputFile = new File(inputFile);
 		this.readFile();
