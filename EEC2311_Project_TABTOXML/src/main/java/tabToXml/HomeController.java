@@ -23,9 +23,13 @@ public class HomeController {
 	@FXML
 	private Button selectButton, convertButton;
 	@FXML
+	private Button viewText1, viewparsed1, viewXml1;
+	@FXML
+	private Button viewText2, viewparsed2, viewXml2;
+	@FXML
 	private Label filePathLabel, statusLabel;
 	@FXML
-	private TextArea tabTextArea;
+	private TextArea tabTextArea1, tabTextArea2;
 	
 	/**
 	 * Method for action event of file chooser button being clicked
@@ -61,7 +65,7 @@ public class HomeController {
 		}else {
 			statusLabel.setTextFill(Color.RED);
 			statusLabel.setText("File Status: NOT a \".txt\" file, pls select a .txt file");
-			tabTextArea.setText("");
+			tabTextArea1.setText("");
 		}		
 	}
 	
@@ -78,7 +82,8 @@ public class HomeController {
 	 */
 	public void reader() {
 		TextFileReader gt = new TextFileReader(selectedFile.getAbsolutePath());
-		tabTextArea.setText(gt.toString());		
+		tabTextArea1.setText(gt.printOrginal());		
+		tabTextArea2.setText(gt.printParsed().toString());
 	}
 	
 }
