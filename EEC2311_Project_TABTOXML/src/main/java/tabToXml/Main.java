@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	public static TextFileReader test = new TextFileReader("tab.txt");
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -19,7 +18,6 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-
 		System.out.print("Launching Application");
 		launch(args);
 	}
