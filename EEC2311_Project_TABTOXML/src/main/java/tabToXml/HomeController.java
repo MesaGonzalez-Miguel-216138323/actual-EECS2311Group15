@@ -46,7 +46,6 @@ public class HomeController {
 		if (selectedFile != null) {
 			filePathLabel.setText("File Path: "+ selectedFile.getAbsolutePath());
 		}
-		System.out.println(selectedFile);
 		
 		if(selectedFile != null) {
 			String filePath = selectedFile.getAbsolutePath();
@@ -60,7 +59,7 @@ public class HomeController {
 		}
 		else if(fileType.equals(".txt")) {
 			statusLabel.setTextFill(Color.GREEN);
-			statusLabel.setText("File Status: A \".txt\" file, you may convert this");
+			statusLabel.setText("File Status: A \".txt\" file, this can be converted");
 			reader();
 		}else {
 			statusLabel.setTextFill(Color.RED);
