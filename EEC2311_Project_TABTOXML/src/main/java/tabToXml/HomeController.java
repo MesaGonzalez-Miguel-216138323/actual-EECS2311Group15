@@ -16,7 +16,7 @@ public class HomeController {
 
 	FileChooser fc;
 	File selectedFile, oldFile;
-	String txtFileContents, fileType;
+	String fileType;
 	
 	public HomeController() {}
 	
