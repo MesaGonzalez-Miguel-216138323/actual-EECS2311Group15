@@ -21,7 +21,6 @@ public class Main extends Application {
 		System.out.print("Launching Application");
 		launch(args);
 		//useless comment
+		// Lab Task
 	}
-
-  
 }
