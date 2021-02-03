@@ -12,7 +12,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFX"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jaxb"/>
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX15"/>
+>>>>>>> refs/heads/develop
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>
