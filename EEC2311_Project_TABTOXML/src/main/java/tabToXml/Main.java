@@ -23,9 +23,12 @@ public class Main extends Application {
 
 		//useless comment
 		//lab task elijah-final try
+<<<<<<< HEAD
 		//in the develop
 		
 
+=======
+>>>>>>> refs/heads/Elijah_feature
 	}
 
   
