@@ -28,6 +28,10 @@ public class Main extends Application {
 
 =======
 		//useless comment by miguel
+<<<<<<< HEAD
+>>>>>>> refs/heads/miguel's_second_branch
+=======
+		//lab task-miguel
 >>>>>>> refs/heads/miguel's_second_branch
 	}
 
