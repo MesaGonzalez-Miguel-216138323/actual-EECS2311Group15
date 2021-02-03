@@ -20,19 +20,12 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		System.out.print("Launching Application");
 		launch(args);
-<<<<<<< HEAD
+
 		//useless comment
-		//lab task elijah-third try
+		//lab task elijah-final try
 		//in the develop
 		
 
-=======
-		//useless comment by miguel
-<<<<<<< HEAD
->>>>>>> refs/heads/miguel's_second_branch
-=======
-		//lab task-miguel
->>>>>>> refs/heads/miguel's_second_branch
 	}
 
   
