@@ -24,3 +24,6 @@ public class Main extends Application {
 
   
 }
+
+
+//lab task 2 ayub
