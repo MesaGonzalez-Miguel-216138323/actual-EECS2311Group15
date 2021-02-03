@@ -20,7 +20,7 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		System.out.print("Launching Application");
 		launch(args);
-		//useless comment
+		//useless comment by miguel
 	}
 
   
