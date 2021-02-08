@@ -8,29 +8,28 @@ public interface TabInterface {
 	 * @param Note
 	 * @return
 	 */
-	public static String translate(String Note) {
-		String[] table = {"C","C#","D","D#","E","F","F#","G","G#","A","A#","B"};		
-		String letter = Note.substring(0,1);
-		String number = Note.substring(1);		
+	public static String translate(String string, int fret) {
+		String[] table = {"C","C#","D","D#","E","F","F#","G","G#","A","A#","B"};			
 		//find location in table
 		int location = 0;
 		for(int i = 0; i < table.length; i++) {
-			if(letter.equals(table[i])) {
+			if(string.substring(0,1).equals(table[i])) {
 				location = i;
 				break;
 			}
 		}
-		int i = Integer.parseInt(number);
-		int num = i;
-		while(i > 0) {
+		
+		int startingOctave = Integer.parseInt(string.substring(1));
+		int octave = startingOctave;
+		while(fret > 0) {
 			location++;
-			i--;
+			fret--;
 			if(location == table.length) {
 				location = 0;
-				num++;
+				octave++;
 			}
 		}		
-		String newNote = table[location]+num;
+		String newNote = table[location]+octave;
 		return newNote;
 	}
 }
