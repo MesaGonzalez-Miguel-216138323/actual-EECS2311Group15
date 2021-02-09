@@ -24,7 +24,8 @@ public class TextFileReader {
 	public TextFileReader(String inputFile){
 		this.inputFile = new File(inputFile);
 		this.createOriginal();
-		this.createParsed();		
+		this.createParsed();
+		this.parsedToRhythm();
 	}
 	
 	/**
@@ -56,15 +57,21 @@ public class TextFileReader {
 		try {
 			sc = new Scanner(inputFile);
 			List<String> list = new ArrayList<>();
-			
 			String previousLine = "";
+			
+			if (sc.hasNextLine()) {
+				previousLine = sc.nextLine();
+				list.add(previousLine);
+				parsedTab.add(list);
+				list = new ArrayList<>();	
+			}
+			
 			while(sc.hasNextLine()){
 				
 				String line = sc.nextLine();
-				if (!(previousLine.isEmpty()) && (line.contains("-") && line.contains("|")))
+
+				if ((previousLine.contains("-") && previousLine.contains("|")) && (line.contains("-") && line.contains("|"))) {
 					list.add(line);
-					
-				if ((previousLine.contains("-") && previousLine.contains("|")) && !(line.contains("-") && line.contains("|"))) {					
 					parsedTab.add(list);
 					list = new ArrayList<>();						
 				}		
@@ -85,6 +92,13 @@ public class TextFileReader {
 	 */
 	public List<List<String>> printParsed() {		
 		return parsedTab;
+	}
+	
+	/**
+	 * Creates a rhythm array of the file in from parsed array
+	 */
+	private void parsedToRhythm() {
+		
 	}
 	
 	/**
